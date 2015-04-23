@@ -1,6 +1,12 @@
 import random
 
-lst = list(map(int, raw_input().split()))
+lst = [1,2,3,4,5]
+
+#list(map(int, raw_input().split()))
+
+def test(A, k):
+    return sorted(A)[k]
+
 #median, or if even number of items in left, 
 #the item to the left of the median
 def quick_select(A, k):
