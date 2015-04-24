@@ -1,7 +1,7 @@
 import median, os
 from image import Picture
 
-IMAGE_DIRECTORY = "images" #change this later
+IMAGE_DIRECTORY = "beach" #change this later
 img_list = []
 size_x = None
 size_y = None
