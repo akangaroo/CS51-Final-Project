@@ -13,11 +13,15 @@ def quick_select(A, k):
     lesser = []
     greater = []
     pivot = random.choice(A)
+    dumdum = 0
     for i in A:
         if i < pivot:
             lesser.append(i)
-        elif i > pivot:
-            greater.append(i)
+        else:
+            if i == pivot and dumdum == 0:
+                dumdum = 1
+            else:
+                greater.append(i)
     (a, a1, a2) = (len(A), len(lesser), len(greater))
     if k < a1:
         return quick_select(lesser, k)
