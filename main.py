@@ -26,9 +26,9 @@ for y in range(size_y):
 			g_list.append(g)
 			b_list.append(b)
 
-		rm = median.test(r_list, len(r_list)/2)  #need to get quickselect working
-		gm = median.test(g_list, len(g_list)/2)
-		bm = median.test(b_list, len(b_list)/2)
+		rm = median.quick_select(r_list, len(r_list)/2)  #need to get quickselect working
+		gm = median.quick_select(g_list, len(g_list)/2)
+		bm = median.quick_select(b_list, len(b_list)/2)
 
 		image.put_RGB_value((x,y),(rm,gm,bm))
 

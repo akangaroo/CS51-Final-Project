@@ -16,7 +16,7 @@ def quick_select(A, k):
     for i in A:
         if i < pivot:
             lesser.append(i)
-        else:
+        elif i > pivot:
             greater.append(i)
     (a, a1, a2) = (len(A), len(lesser), len(greater))
     if k < a1:
