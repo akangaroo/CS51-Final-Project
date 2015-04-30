@@ -1,7 +1,7 @@
 import median, os
 from image import Picture
 
-IMAGE_DIRECTORY = "beach" #change this later
+IMAGE_DIRECTORY = "amy"
 img_list = []
 size_x = None
 size_y = None
@@ -26,11 +26,11 @@ for y in range(size_y):
 			g_list.append(g)
 			b_list.append(b)
 
-		rm = median.quick_select(r_list, len(r_list)/2)  #need to get quickselect working
+		rm = median.quick_select(r_list, len(r_list)/2)
 		gm = median.quick_select(g_list, len(g_list)/2)
 		bm = median.quick_select(b_list, len(b_list)/2)
 
 		image.put_RGB_value((x,y),(rm,gm,bm))
 
-image.save('output.png')
+image.save(IMAGE_DIRECTORY + '_output.png')
 
