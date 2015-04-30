@@ -1,8 +1,16 @@
 from image import Picture
 import os
 
-# IMAGE_DIRECTORY = "amymoving"
+IMAGE_DIRECTORY = "amymoving"
 
+# normalize histogram
+def normalize(arr):
+	total = sum(arr)
+	for i in range(len(arr)):
+		arr[i] = float(arr[i])/total
+	return arr
+
+# create color histogram from image object
 def create_histogram(image):
 	red = [0] * 256
 	green = [0] * 256
@@ -17,11 +25,31 @@ def create_histogram(image):
 			green[g] = green[g] + 1
 			blue[b] = blue[b] + 1
 
-	rgb = [red, green, blue]
+	rgb = [normalize(red), normalize(green), normalize(blue)]
 	return rgb
 
-# image = Picture(filename = os.path.join(IMAGE_DIRECTORY, 'final.png'))
-# print (create_histogram(image))
-# print image.width * image.height
+# calculate chi-squared value
+def chi_square(v1, v2):
+	if v2 != 0:
+		val = (v1 - v2)*(v1 - v2)/(v2*v2)
+	else:
+		val = 0
+	return val
 
-def chi_square(hist1, hist2):
+# pass in two arrays, each histograms of 1 color channel
+# Kolmogorov-Smirnov Test
+def chi_squared_comp(hist1, hist2):
+	comp1 = [0] * 256
+	for i in range(255):
+		comp1[i] = chi_square(hist1[i], hist2[i])
+	return sum(comp1)/2
+
+def comp_color_histograms(hist1, hist2):
+	red_comp = chi_squared_comp(hist1[0], hist2[0])
+	green_comp = chi_squared_comp(hist1[1], hist2[1])
+	blue_comp = chi_squared_comp(hist1[2], hist2[2])
+	return (red_comp, green_comp, blue_comp)
+
+model = Picture(filename = os.path.join(IMAGE_DIRECTORY, 'final.png'))
+image = Picture(filename = os.path.join(IMAGE_DIRECTORY, 'output.png'))
+print (comp_color_histograms(create_histogram(model),create_histogram(image)))

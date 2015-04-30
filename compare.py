@@ -1,6 +1,7 @@
 from image import Picture
 import os
 
+# brute force comparison (pixel by pixel comparison)
 def brute(image, base):
 	count = 0
 	size_x, size_y = base.width, base.height
