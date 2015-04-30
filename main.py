@@ -1,4 +1,4 @@
-import median, os
+import median, os, compare
 from image import Picture
 
 IMAGE_DIRECTORY = "amy"
@@ -26,15 +26,13 @@ for y in range(size_y):
 			g_list.append(g)
 			b_list.append(b)
 
-		#rm = median.quick_select(r_list, len(r_list)/2)
-		#gm = median.quick_select(g_list, len(g_list)/2)
-		#bm = median.quick_select(b_list, len(b_list)/2)
-
-		rm = median.get_median(r_list, len(r_list)/2)
-		gm = median.get_median(g_list, len(g_list)/2)
-		bm = median.get_median(b_list, len(b_list)/2)
+		rm = median.quick_select(r_list, len(r_list)/2)
+		gm = median.quick_select(g_list, len(g_list)/2)
+		bm = median.quick_select(b_list, len(b_list)/2)
 
 		image.put_RGB_value((x,y),(rm,gm,bm))
+
+print "Similarity: " + compare.brute(image, IMAGE_DIRECTORY + '_final') + "%"
 
 image.save(IMAGE_DIRECTORY + '_output.png')
 
