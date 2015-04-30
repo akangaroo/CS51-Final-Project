@@ -28,8 +28,8 @@ def quick_select(A, k):
     else:
         return pivot
 
-def median_1(C):
-   print quick_select (C, len(C)/2)
+def median_test(C):
+   print counting_sort_med(C, 12)
 
 #helper median (manual) for short lists
 def short_median(A):
@@ -53,9 +53,15 @@ def median_of_fives(A):
 def counting_sort_med(A, m):
     hist = [0] * m
     for i in A:
-        hist[i-1] = hist[i-1] + 1
+        hist[i] = hist[i] + 1
     mid = len(A)/2
     for i in range(m):
         mid = mid - A[i]
-        if mid <= 0
-            return A[i]
+        if mid <= 0:
+            return i
+
+
+def get_median(A):
+    median_of_fives(A)
+
+median_test(lst)
