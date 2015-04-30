@@ -49,3 +49,13 @@ def median_of_fives(A):
         if len(A) > 5*len(A)/5:
             next.append(short_median(5*len(A)/5, len(A)))
         return median_of_fives(next)
+
+def counting_sort_med(A, m):
+    hist = [0] * m
+    for i in A:
+        hist[i-1] = hist[i-1] + 1
+    mid = len(A)/2
+    for i in range(m):
+        mid = mid - A[i]
+        if mid <= 0
+            return A[i]
