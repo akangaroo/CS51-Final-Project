@@ -1,3 +1,5 @@
+# adapted from nghiaho.com
+
 import numpy as numpy
 import cv2
 
