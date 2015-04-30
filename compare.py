@@ -9,7 +9,7 @@ def brute(image, base):
 			r, g, b = image.get_RGB_value((x,y))
 			rb, gb, bb = base.get_RGB_value((x,y))
 			rgb = [abs(rb-r),abs(gb-g),abs(bb-b)]
-			if sum(rgb) <= 20:
+			if sum(rgb) <= 10:
 				count = count+1
 	print count
 	print size_x*size_y

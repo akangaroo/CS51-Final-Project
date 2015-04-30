@@ -1,7 +1,7 @@
 import median, os, compare
 from image import Picture
 
-IMAGE_DIRECTORY = "amy"
+IMAGE_DIRECTORY = "amymoving"
 img_list = []
 size_x = None
 size_y = None
@@ -32,7 +32,9 @@ for y in range(size_y):
 
 		image.put_RGB_value((x,y),(rm,gm,bm))
 
-print "Similarity: " + compare.brute(image, IMAGE_DIRECTORY + '_final') + "%"
+image.save(os.path.join(IMAGE_DIRECTORY, 'output.png'))
 
-image.save(IMAGE_DIRECTORY + '_output.png')
+model = Picture(filename = os.path.join(IMAGE_DIRECTORY, 'final.png'))
+
+print "Similarity: " + compare.brute(image, model) + "%"
 
