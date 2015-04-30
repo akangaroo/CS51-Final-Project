@@ -1,6 +1,7 @@
 import random
+import time
 
-lst = [1,2,3,4,5,6,7,8,9,10]
+lst = [1,2,3,4,5,6,7,8,9,10,11]
 
 def test(A, k):
     return sorted(A)[k]
@@ -20,18 +21,15 @@ def quick_select(A, k):
                 indicator = False
             else:
                 greater.append(i)
-    (a, a1, a2) = (len(A), len(lesser), len(greater))
-    if k <= a1:
+    if k <= len(lesser):
         return quick_select(lesser, k)
-    elif k > a - a2:
-        return quick_select(greater, k - (a - a2))
+    elif k > len(A) - len(greater):
+        return quick_select(greater, k - (len(A) - len(greater)))
     else:
         return pivot
 
 def median_1(C):
    print quick_select (C, len(C)/2)
-
-median_1(lst)
 
 #helper median (manual) for short lists
 def short_median(A):
@@ -39,6 +37,8 @@ def short_median(A):
 
 #median of fives method
 def median_of_fives(A):
+    random.seed(time.time())
+    random.shuffle(A)
     length = len(A)
     next = []
     if length <= 5:
@@ -49,6 +49,3 @@ def median_of_fives(A):
         if len(A) > 5*len(A)/5:
             next.append(short_median(5*len(A)/5, len(A)))
         return median_of_fives(next)
-
-print median_of_fives(lst)
-
