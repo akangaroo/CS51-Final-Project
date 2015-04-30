@@ -1,7 +1,7 @@
 import random
 import time
 
-lst = [1,2,3,4,5,6,7,8,9,10,11]
+lst = [0,1,2,3,4,5,6,7,8,9,10,11]
 
 def test(A, k):
     return sorted(A)[k]
@@ -55,11 +55,10 @@ def counting_sort_med(A, m):
     for i in A:
         hist[i] = hist[i] + 1
     mid = len(A)/2
-    for i in range(m):
-        mid = mid - A[i]
+    for i in range(0, m):
+        mid = mid - hist[i]
         if mid <= 0:
             return i
-
 
 def get_median(A):
     median_of_fives(A)
