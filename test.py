@@ -1,4 +1,4 @@
-import median, os, compare, numpy, cv2, compression
+import median, os, numpy, compression
 from image import Picture
 
 IMAGE_DIRECTORY = "statue"
