@@ -29,8 +29,6 @@ def quick_select(A, k):
     else:
         return pivot
 
-print quick_select(lst, 1)
-
 def median_test(C):
    print counting_sort_med(C, 12)
 
@@ -66,14 +64,13 @@ def counting_sort_med(A, m):
 
 # called in main.py to compute median
 def get_median(A, u):
-    u = u.lower().strip()
-    if u is "a":
+    if u == "a":
         return quick_select(A, len(A)/2)
-    elif u is "b":
+    elif u == "b":
         return median_of_fives(A)
-    elif u is "c":
+    elif u == "c":
         return counting_sort_med(A, 256)
-    elif u is "d":
+    elif u == "d":
         return baseline(A, len(A)/2)
     else:
         "No median function"
