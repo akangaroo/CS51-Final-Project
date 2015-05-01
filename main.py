@@ -2,11 +2,9 @@ import median, os, compare, numpy, cv2
 from image import Picture
 
 # folder containing image set to use
-<<<<<<< HEAD
-IMAGE_DIRECTORY = "john_harvard"
-=======
+
 IMAGE_DIRECTORY = "samplemov"
->>>>>>> 6ffb1e4125dc91d61af87cd71297526b55acc412
+
 img_list = []
 size_x = None
 size_y = None
@@ -54,10 +52,6 @@ for y in range(size_y):
 
 image.save(os.path.join(IMAGE_DIRECTORY, 'output.png'))
 
-
-<<<<<<< HEAD
 #print "Similarity: " + compare.brute(image, model) + "%"
-=======
-# print "Similarity: " + compare.brute(image, model) + "%"
->>>>>>> 6ffb1e4125dc91d61af87cd71297526b55acc412
+
 
