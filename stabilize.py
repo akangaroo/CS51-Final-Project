@@ -1,4 +1,17 @@
-# adapted from nghiaho.com
+# Adapted from nghiaho.com: http://nghiaho.com/?p=2093
+# We used the above C++ implementation of a video stabilization algorithm using OpenCV
+# as a starting point to identify helpful functions within OpenCV and to
+# learn about how the relevant functions within OpenCV work.
+
+# From here, we intended to adapt the algorithm to create a more robust stabilization
+# taking in image sets rather than video, and accounting for not only rigid transformations
+# (translations and rotations in the plane) as this algorithm does, but also shearing
+# and scaling by using findHomography and warpAffine functions in OpenCV rather than
+# estimateRigidTransform. We quickly found, however, that OpenCV, as well as
+# methods to calculate optical flow and transforms have a very steep
+# learning curve, and the time could be used to work on our other extensions instead.
+# We decided to leave our attempts for now to move on to other extensions (video, similarity
+# and image compression)
 
 import numpy as numpy
 import cv2
