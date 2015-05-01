@@ -28,6 +28,8 @@ def quick_select(A, k):
     else:
         return pivot
 
+print quick_select(lst, 1)
+
 def median_test(C):
    print counting_sort_med(C, 12)
 
