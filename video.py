@@ -1,4 +1,3 @@
-from PIL import Image
 from image import Picture
 import numpy
 import median, os, compare

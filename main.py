@@ -1,15 +1,29 @@
-import median, os, compare
+import median, os, compare, numpy, cv2
 from image import Picture
 
 # folder containing image set to use
+<<<<<<< HEAD
 IMAGE_DIRECTORY = "john_harvard"
+=======
+IMAGE_DIRECTORY = "samplemov"
+>>>>>>> 6ffb1e4125dc91d61af87cd71297526b55acc412
 img_list = []
 size_x = None
 size_y = None
 
-# create list of Picture objects from image directory
-for f in os.listdir(IMAGE_DIRECTORY):
-	img_list.append(Picture(filename = os.path.join(IMAGE_DIRECTORY, f)))
+if "mov" in IMAGE_DIRECTORY:
+	capture_video = cv2.VideoCapture(os.path.join(IMAGE_DIRECTORY, "sample.mov"))
+	success = True
+	while success:
+		success, image = capture_video.read()
+		if success:
+			image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+			img_list.append(Picture(array = image))
+else:
+	# create list of Picture objects from image directory
+	for f in os.listdir(IMAGE_DIRECTORY):
+		if f is not "final.png" or "output.png":
+			img_list.append(Picture(filename = os.path.join(IMAGE_DIRECTORY, f)))
 
 # get width (size_x) and height (size_y) of each image
 if img_list:
@@ -41,5 +55,9 @@ for y in range(size_y):
 image.save(os.path.join(IMAGE_DIRECTORY, 'output.png'))
 
 
+<<<<<<< HEAD
 #print "Similarity: " + compare.brute(image, model) + "%"
+=======
+# print "Similarity: " + compare.brute(image, model) + "%"
+>>>>>>> 6ffb1e4125dc91d61af87cd71297526b55acc412
 

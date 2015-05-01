@@ -4,8 +4,12 @@ import os
 class Picture(object):
 
     # initialize image object
-    def __init__ (self, filename = None, type = None, size = None):
-        if filename is None:
+    def __init__ (self, filename = None, type = None, size = None, array = None):
+        if array is not None:
+            self.img = Image.fromarray(array, None)
+            self.rgb_img = self.img.convert('RGB')
+            self.width, self.height = self.img.size
+        elif filename is None:
             self.img = Image.new(type, size)
             self.rgb_img = self.img
             x, y = size
