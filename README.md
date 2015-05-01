@@ -28,3 +28,13 @@ Make a selection
 ```
 
 Wait until the program finishes, and the you will get a percent similarity of the generated image to the reference frame using the pixel-to-pixel comparison. You'll see your generated image as well!
+
+# Documentation
+
+**main.py** - Main document for project, where image is processed
+**compare.py**
+**compression.py**
+**correlation.py**
+**chisquare.py**
+**image.py** - Picture class
+**median.py**
