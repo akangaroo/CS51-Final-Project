@@ -1,4 +1,4 @@
-from image import Picture
+from picture import Picture
 import os
 import numpy
 import cv2

@@ -1,5 +1,5 @@
 import median, os, compare, numpy, cv2
-from image import Picture
+from picture import Picture
 
 
 print "\n\nWelcome to our CS51 Project: \nPhotographing the John Harvard Statue\n" \
