@@ -2,7 +2,7 @@ import median, os, compare
 from image import Picture
 
 # folder containing image set to use
-IMAGE_DIRECTORY = "amymoving"
+IMAGE_DIRECTORY = "john_harvard"
 img_list = []
 size_x = None
 size_y = None
@@ -41,5 +41,5 @@ for y in range(size_y):
 image.save(os.path.join(IMAGE_DIRECTORY, 'output.png'))
 
 
-print "Similarity: " + compare.brute(image, model) + "%"
+#print "Similarity: " + compare.brute(image, model) + "%"
 
