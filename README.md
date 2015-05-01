@@ -40,11 +40,17 @@ Wait until the program finishes, and the you will get a percent similarity of th
 # Documentation
 
 **main.py** - Main document for project, where image is processed
+
 **compression.py** - Compresses the resulting image using Huffman Encoding
+
 **median.py** - Collection of algorithms that finds median of list
+
 **picture.py** - Picture class to get RGB value, save image, etc.
+
 **similarity.py** - Collection of algorithms that find similarity between output and reference image
+
 **stabilize.py** - Starting working on image stabilization, not completed yet
+
 
 Image and Movie Files:
 * Amy Moving in Basement
