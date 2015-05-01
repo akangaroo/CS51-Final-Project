@@ -29,11 +29,6 @@ def quick_select(A, k):
     else:
         return pivot
 
-print quick_select(lst, 1)
-
-def median_test(C):
-   print counting_sort_med(C, 12)
-
 # helper median (manual) for short lists
 def short_median(A):
     return sorted(A)[len(A)/2]
@@ -67,5 +62,3 @@ def counting_sort_med(A, m):
 # called in main.py to compute median
 def get_median(A):
     return quick_select(A, len(A)/2)
-
-median_test(lst)
