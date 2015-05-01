@@ -44,6 +44,8 @@ def get_tree(A, m):
 
 # get codes from a tree
 def get_codes(t, codes, prefix):
+	print "in get_codes"
+	print t.value
 	if t.value == None:
 		get_codes(t.left, codes, prefix + "0")
 		get_codes(t.right, codes, prefix + "1")
