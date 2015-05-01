@@ -57,10 +57,11 @@ def compress_file(A, m):
 	for i in A:
 		f.write(codes[i])
 
-def compress_rgb(R, G, B):
+def compress_rgb(rgb_tuples):
 	A = []
 	for i in range(len(A)):
-		A.append(R[i])
-		A.append(G[i])
-		A.append(B[i])
+		(r, g, b) = rgb_tuples[i]
+		A.append(r)
+		A.append(g)
+		A.append(b)
 	compress_file(A, 256)
