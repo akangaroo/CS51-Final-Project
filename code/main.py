@@ -23,7 +23,7 @@ def choose_images(x):
  	}.get(x, "Pictures not found")
 
 # folder containing image set or movie to use
-IMAGE_DIRECTORY = choose_images(user_choice)
+IMAGE_DIRECTORY = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'data', choose_images(user_choice)))
 
 img_list = []
 size_x = None
@@ -64,6 +64,8 @@ while True:
 	if user_median in ['a','b','c','d']:
 		break
 
+print "Processing image..."
+
 # iterate through image set and retrieve RGB values
 for y in range(size_y):
 	for x in range(size_x):
@@ -84,6 +86,8 @@ for y in range(size_y):
 		image.put_RGB_value((x,y),(rm,gm,bm))
 
 image.save(os.path.join(IMAGE_DIRECTORY, 'output.png'))
+
+print "Done processing!"
 
 # compare output image to reference image, named final.png
 model = Picture(filename = os.path.join(IMAGE_DIRECTORY, 'final.png'))
