@@ -30,6 +30,9 @@ class Picture(object):
         else:
             return self.get_RGB_value(self, (x+1, y))
 
+    def get_pixel_list(self):
+        return self.img.getdata()
+
     # insert RGB value into image at pos
     def put_RGB_value(self, pos, rgb):
         (x, y) = pos

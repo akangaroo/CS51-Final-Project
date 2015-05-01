@@ -48,6 +48,7 @@ def get_codes(t, codes, prefix):
 		get_codes(t.left, codes, prefix + "0")
 		get_codes(t.right, codes, prefix + "1")
 	else:
+		print prefix
 		codes[t.value] = prefix
 
 def compress_file(A, m):
