@@ -1,5 +1,5 @@
 # CS51 Final Project
-Project Name: Photographing the John Harvard Statue
+Project Name: Photographing the John Harvard Statue.
 
 Created by Amy Kang, Anna Liu, Cecilia Zhou, Haoqing Wang
 
