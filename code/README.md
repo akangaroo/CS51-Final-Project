@@ -17,7 +17,7 @@ Other dependencies for our project include: SciPy.stats, os, and NumPy.
 
 Start the program
 ```shell
-python main.py
+python code/main.py
 ```
 Select an image set or video from which to produce the 'noiseless' image:
 ```shell
