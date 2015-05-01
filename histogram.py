@@ -1,10 +1,8 @@
 from image import Picture
-import scipy.stats
-import numpy as np
-import cv2
 import os
+import scipy.stats
 
-IMAGE_DIRECTORY = "amymoving"
+IMAGE_DIRECTORY = "john_harvard"
 
 # normalize histogram
 def normalize(arr):
@@ -40,13 +38,13 @@ def chi_square(v1, v2):
 	return val
 
 # pass in two arrays, each histograms of 1 color channel
+# chi-square test
 def chi_squared_comp(hist1, hist2):
 	comp1 = [0] * 256
 	for i in range(255):
 		comp1[i] = chi_square(hist1[i], hist2[i])/2
 	return sum(comp1)
 
-# get chi-squared values of all three color channels
 def comp_color_histograms(hist1, hist2):
 	red_comp = chi_squared_comp(hist1[0], hist2[0])
 	green_comp = chi_squared_comp(hist1[1], hist2[1])
@@ -55,7 +53,10 @@ def comp_color_histograms(hist1, hist2):
 
 model = Picture(filename = os.path.join(IMAGE_DIRECTORY, 'final.png'))
 image = Picture(filename = os.path.join(IMAGE_DIRECTORY, 'output.png'))
-comp_color_histograms(create_histogram(model), create_histogram(image))
-print (comp_color_histograms(create_histogram(model),create_histogram(image)))
-
-
+r_comp, g_comp, b_comp = comp_color_histograms(create_histogram(image), create_histogram(model))
+print (r_comp, g_comp, b_comp)
+r_prob = scipy.stats.chi2.cdf(r_comp, 255)
+g_prob = scipy.stats.chi2.cdf(g_comp, 255)
+b_prob = scipy.stats.chi2.cdf(b_comp, 255)
+print (r_prob, g_prob, b_prob)
+print ((r_prob+g_prob+b_prob)/3)

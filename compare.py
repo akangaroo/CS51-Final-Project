@@ -1,6 +1,8 @@
 from image import Picture
 import os
 
+IMAGE_DIRECTORY = "amymoving"
+
 # brute force comparison (pixel by pixel comparison)
 def brute(image, base):
 	count = 0
@@ -16,3 +18,7 @@ def brute(image, base):
 	print size_x*size_y
 	print  (float (count) / (size_x * size_y))
 	return '%.2f' % (float(count) / (size_x * size_y) * 100)
+
+model = Picture(filename = os.path.join(IMAGE_DIRECTORY, 'final.png'))
+image = Picture(filename = os.path.join(IMAGE_DIRECTORY, 'output.png'))
+brute(image, model)
