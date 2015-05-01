@@ -1,9 +1,28 @@
 import median, os, compare, numpy, cv2
 from image import Picture
 
-# folder containing image set to use
 
-IMAGE_DIRECTORY = "john_harvard"
+print "Welcome to our CS51 Project: \nPhotographing the John Harvard Statue"
+print "Our project removes moving objects in the background in a collection " \
+		"of photos. Make a selection below for the option you would like to run " \
+		"by entering the letter in the parenthesis:" \
+		"\n(A) Amy in Basement" + "\n(B) Beach" + "\n(J) John Harvard Statue" \
+		"\n(S) Sculpture" + "\n(M) Movie of Room"
+
+user_choice = raw_input("Enter your choice: ")
+
+def make_choice(x):
+	x = x.lower().strip()
+	return {
+		'a' : 'amy',
+		'b' : 'beach',
+		'j' : 'john_harvard',
+		's' : 'statue',
+		'm' : 'samplemov'
+ 	}.get(x, "Pictures not found")
+
+# folder containing image set or movie to use
+IMAGE_DIRECTORY = make_choice(user_choice)
 
 img_list = []
 size_x = None
@@ -54,5 +73,7 @@ image.save(os.path.join(IMAGE_DIRECTORY, 'output.png'))
 
 model = Picture(filename = os.path.join(IMAGE_DIRECTORY, 'final.png'))
 print "Similarity: " + compare.brute(image, model) + "%"
+
+image.display()
 
 

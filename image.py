@@ -38,3 +38,6 @@ class Picture(object):
 
     def save(self, filename):
         self.img.save(filename)
+
+    def display(self):
+        self.img.show()
