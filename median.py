@@ -4,7 +4,7 @@ import time
 # test list
 lst = [0,1,2,3,4,5,6,7,8,9,10,11]
 
-def test(A, k):
+def baseline(A, k):
     return sorted(A)[k]
 
 # median, or if even number of items in left, 
@@ -29,11 +29,16 @@ def quick_select(A, k):
     else:
         return pivot
 
+print quick_select(lst, 1)
+
+def median_test(C):
+   print counting_sort_med(C, 12)
+
 # helper median (manual) for short lists
 def short_median(A):
     return sorted(A)[len(A)/2]
 
-# median of fives method
+# median of fives method (probabilistic)
 def median_of_fives(A):
     random.seed(time.time())
     random.shuffle(A)
@@ -60,5 +65,15 @@ def counting_sort_med(A, m):
             return i
 
 # called in main.py to compute median
-def get_median(A):
-    return quick_select(A, len(A)/2)
+def get_median(A, u):
+    u = u.lower().strip()
+    if u is "a":
+        return quick_select(A, len(A)/2)
+    elif u is "b":
+        return median_of_fives(A)
+    elif u is "c":
+        return counting_sort_med(A, 256)
+    elif u is "d":
+        return baseline(A, len(A)/2)
+    else:
+        "No median function"

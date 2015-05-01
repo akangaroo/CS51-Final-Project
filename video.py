@@ -1,4 +1,5 @@
 from image import Picture
+import hsi
 import numpy
 import median, os, compare
 import cv2
