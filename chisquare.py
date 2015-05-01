@@ -2,7 +2,7 @@ from picture import Picture
 import os
 import scipy.stats
 
-IMAGE_DIRECTORY = "john_harvard"
+IMAGE_DIRECTORY = "amy"
 
 # normalize histogram
 def normalize(arr):
