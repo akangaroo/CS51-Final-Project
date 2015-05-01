@@ -44,13 +44,10 @@ def get_tree(A, m):
 
 # get codes from a tree
 def get_codes(t, codes, prefix):
-	print "in get_codes"
-	print t.value
 	if t.value == None:
 		get_codes(t.left, codes, prefix + "0")
 		get_codes(t.right, codes, prefix + "1")
 	else:
-		print prefix
 		codes[t.value] = prefix
 
 def compress_file(A, m):
@@ -62,7 +59,7 @@ def compress_file(A, m):
 
 def compress_rgb(rgb_tuples):
 	A = []
-	for i in range(len(A)):
+	for i in range(len(rgb_tuples)):
 		(r, g, b) = rgb_tuples[i]
 		A.append(r)
 		A.append(g)
