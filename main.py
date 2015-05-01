@@ -2,8 +2,8 @@ import median, os, compare, numpy, cv2
 from image import Picture
 
 
-print "Welcome to our CS51 Project: \nPhotographing the John Harvard Statue"
-print "Our project removes moving objects in the background in a collection " \
+print "\n\nWelcome to our CS51 Project: \nPhotographing the John Harvard Statue\n" \
+		"Our project removes moving objects in the background in a collection " \
 		"of photos. Make a selection below for the option you would like to run " \
 		"by entering the letter in the parenthesis:" \
 		"\n(A) Amy in Basement" + "\n(B) Beach" + "\n(J) John Harvard Statue" \
@@ -11,7 +11,7 @@ print "Our project removes moving objects in the background in a collection " \
 
 user_choice = raw_input("Enter your choice: ")
 
-def make_choice(x):
+def choose_images(x):
 	x = x.lower().strip()
 	return {
 		'a' : 'amy',
@@ -22,7 +22,7 @@ def make_choice(x):
  	}.get(x, "Pictures not found")
 
 # folder containing image set or movie to use
-IMAGE_DIRECTORY = make_choice(user_choice)
+IMAGE_DIRECTORY = choose_images(user_choice)
 
 img_list = []
 size_x = None
@@ -50,6 +50,17 @@ if img_list:
 # empty Picture object to hold output image
 image = Picture(type = 'RGB', size = (size_x, size_y))
 
+
+print "\n\nSeveral functions are available to process the image:\n" \
+		"(A) Quick Select\n" + "(B) Median of Fives\n" + "(C) Counting Sort\n" \
+		"(D) Median of Sorted List\n"
+
+while True:
+	user_median = raw_input("Choose a function: ")
+	user_median = user_median.lower().strip().replace("(","").replace(")","")
+	if user_median in ['a','b','c','d']:
+		break
+
 # iterate through image set and retrieve RGB values
 for y in range(size_y):
 	for x in range(size_x):
@@ -63,9 +74,9 @@ for y in range(size_y):
 			b_list.append(b)
 
 		# insert median values into output image
-		rm = median.get_median(r_list)
-		gm = median.get_median(g_list)
-		bm = median.get_median(b_list)
+		rm = median.get_median(r_list, user_median)
+		gm = median.get_median(g_list, user_median)
+		bm = median.get_median(b_list, user_median)
 
 		image.put_RGB_value((x,y),(rm,gm,bm))
 
