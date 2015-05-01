@@ -89,4 +89,4 @@ def get_p_value (r_comp, g_comp, b_comp):
 def sim_chi(image1, image2):
 	r, g, b = comp_color_histograms(create_chi_hist(image1), create_chi_hist(image2))
 	rp, gp, bp =  get_p_value (r, g, b)
-	return '%.2f' % ((rp+gp+bp)/3.0)
+	return '%.3e' % ((rp+gp+bp)/3.0)
