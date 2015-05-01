@@ -7,7 +7,8 @@ Created by Amy Kang, Anna Liu, Cecilia Zhou, Haoqing Wang
 Our project runs in Python 2.7 using the numpy library and the OpenCV package.
 
 1. Follow [this link](https://jjyap.wordpress.com/2014/05/24/installing-opencv-2-4-9-on-mac-osx-with-python-support/) to setup OpenCV on Python
-Note: We're using OpenCV version 2.4.11 instead of 2.4.9
+
+	Note: We're using OpenCV version 2.4.11 instead of 2.4.9
 
 2. Install numpy by following [this link](http://www.numpy.org/)
 
