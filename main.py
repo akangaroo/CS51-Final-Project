@@ -3,7 +3,7 @@ from image import Picture
 
 # folder containing image set to use
 
-IMAGE_DIRECTORY = "samplemov"
+IMAGE_DIRECTORY = "john_harvard"
 
 img_list = []
 size_x = None
@@ -52,6 +52,7 @@ for y in range(size_y):
 
 image.save(os.path.join(IMAGE_DIRECTORY, 'output.png'))
 
-#print "Similarity: " + compare.brute(image, model) + "%"
+model = Picture(filename = os.path.join(IMAGE_DIRECTORY, 'final.png'))
+print "Similarity: " + compare.brute(image, model) + "%"
 
 
