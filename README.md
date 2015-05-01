@@ -18,7 +18,7 @@ Start the program
 ```shell
 python main.py
 ```
-Make a selection
+Make an image or movie:
 ```shell
 	(A) Amy in Basement
 	(B) Beach
@@ -27,14 +27,28 @@ Make a selection
 	(M) Movie of Room
 ```
 
+Select a median finding algorithm:
+```shell
+	(A) Quick Select
+	(B) Median of Fives
+	(C) Counting Sort
+	(D) Baseline
+```
+
 Wait until the program finishes, and the you will get a percent similarity of the generated image to the reference frame using the pixel-to-pixel comparison. You'll see your generated image as well!
 
 # Documentation
 
 **main.py** - Main document for project, where image is processed
-**compare.py**
-**compression.py**
-**correlation.py**
-**chisquare.py**
-**image.py** - Picture class
-**median.py**
+**compression.py** - Compresses the resulting image using Huffman Encoding
+**median.py** - Collection of algorithms that finds median of list
+**picture.py** - Picture class to get RGB value, save image, etc.
+**similarity.py** - Collection of algorithms that find similarity between output and reference image
+**stabilize.py** - Starting working on image stabilization, not completed yet
+
+Image and Movie Files:
+* Amy Moving in Basement
+* Beach Scene
+* John Harvard Statue
+* Sculpture
+* Movie of Room
