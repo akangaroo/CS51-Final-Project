@@ -3,7 +3,7 @@ import os
 import numpy
 import cv2
 
-IMAGE_DIRECTORY = "john_harvard"
+IMAGE_DIRECTORY = "amy"
 
 def create_histogram(image):
 	image = numpy.array(image.rgb_img)
@@ -16,5 +16,5 @@ def compare_histograms(hist1, hist2):
 	return cv2.compareHist(hist1, hist2, cv2.cv.CV_COMP_CORREL)
 
 model = Picture(filename = os.path.join(IMAGE_DIRECTORY, 'final.png'))
-image = Picture(filename = os.path.join(IMAGE_DIRECTORY, 'output.png'))
+image = Picture(filename = os.path.join(IMAGE_DIRECTORY, 'output.jpg'))
 print (compare_histograms(create_histogram(model), create_histogram(image)))
