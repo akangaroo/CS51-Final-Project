@@ -1,7 +1,7 @@
-import median, os, compare, numpy, cv2
+import median, os, similarity, numpy, cv2
 from picture import Picture
 
-
+# introduction to project
 print "\n\nWelcome to our CS51 Project: \nPhotographing the John Harvard Statue\n" \
 		"Our project removes moving objects in the background in a collection " \
 		"of photos. Make a selection below for the option you would like to run " \
@@ -9,8 +9,9 @@ print "\n\nWelcome to our CS51 Project: \nPhotographing the John Harvard Statue\
 		"\n(A) Amy in Basement" + "\n(B) Beach" + "\n(J) John Harvard Statue" \
 		"\n(S) Sculpture" + "\n(M) Movie of Room"
 
-user_choice = raw_input("Enter your choice: ")
+user_choice = raw_input("\nEnter your choice: ")
 
+# function for the user to choose an image collection
 def choose_images(x):
 	x = x.lower().strip()
 	return {
@@ -28,6 +29,7 @@ img_list = []
 size_x = None
 size_y = None
 
+# if analyzing a movie, get frames from movie
 if "mov" in IMAGE_DIRECTORY:
 	capture_video = cv2.VideoCapture(os.path.join(IMAGE_DIRECTORY, "sample.mov"))
 	success = True
@@ -51,6 +53,7 @@ if img_list:
 image = Picture(type = 'RGB', size = (size_x, size_y))
 
 
+# user chooses which median finding algorithm to apply to images
 print "\n\nSeveral functions are available to process the image:\n" \
 		"(A) Quick Select\n" + "(B) Median of Fives\n" + "(C) Counting Sort\n" \
 		"(D) Median of Sorted List\n"
@@ -82,9 +85,14 @@ for y in range(size_y):
 
 image.save(os.path.join(IMAGE_DIRECTORY, 'output.png'))
 
+# compare output image to reference image, named final.png
 model = Picture(filename = os.path.join(IMAGE_DIRECTORY, 'final.png'))
-print "Similarity: " + compare.brute(image, model) + "%"
+print "\n\nBrute Similarity: " + similarity.sim_brute(image, model)
+print "Correlation Similarity: " + similarity.sim_correlation(image, model)
+print "Chi Squared p-value: " + similarity.sim_chi(image, model)
+print "Note: Closer to 0 is perfect for chi-squared, 1 is perfect for brute and correlation\n\n"
 
+# displays output image to the user
 image.display()
 
 

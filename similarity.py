@@ -15,7 +15,7 @@ def sim_brute(image, base):
 			rgb = [abs(rb-r),abs(gb-g),abs(bb-b)]
 			if sum(rgb) <= 10:
 				count = count+1
-	return '%.2f' % (float(count) / (size_x * size_y) * 100)
+	return '%.2f' % (float(count) / (size_x * size_y))
 
 # make histograms for correlation test using OpenCV functions
 def create_correlation_hist(image):
@@ -30,7 +30,7 @@ def compare_correlation(hist1, hist2):
 	return cv2.compareHist(hist1, hist2, cv2.cv.CV_COMP_CORREL)
 
 def sim_correlation(image1, image2):
-	return compare_correlation(create_correlation_hist(image1), create_correlation_hist(image2))
+	return '%.2f' % compare_correlation(create_correlation_hist(image1), create_correlation_hist(image2))
 
 # histogram for chi-square
 # normalize histogram
@@ -89,4 +89,4 @@ def get_p_value (r_comp, g_comp, b_comp):
 def sim_chi(image1, image2):
 	r, g, b = comp_color_histograms(create_chi_hist(image1), create_chi_hist(image2))
 	rp, gp, bp =  get_p_value (r, g, b)
-	return (rp+gp+bp)/3
+	return '%.2f' % ((rp+gp+bp)/3.0)
